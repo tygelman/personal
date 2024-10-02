@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ty's Portfolio</title>
+  <style>
+    /* Importing a coder-friendly font */
+    @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&display=swap');
+
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body Styles */
+    body {
+      font-family: 'Fira Code', monospace;
+      line-height: 1.6;
+      background: #000;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: #333;
+      color: #fff;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      list-style: none;
+    }
+
+    .nav-links li {
+      display: inline;
+      margin-left: 20px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #fff;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #00ffdd;
+    }
+
+    /* Main Sections */
+    main {
+      padding-top: 70px;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      min-height: 100vh;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .fade-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Home Section */
+    #home {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Particle Effect for Mouse Interaction */
+    .particle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #00ffdd;
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      animation: particle-animation 1s forwards;
+    }
+
+    @keyframes particle-animation {
+      0% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(3);
+      }
+    }
+
+    /* Typewriter Text */
+    .typewriter {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-top: 20px;
+      color: #00ffdd;
+    }
+
+    /* About Me Section */
+    #about {
+      background: #111;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .about-container {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .headshot {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 20px;
+    }
+
+    /* Research Section */
+    .research-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .research-box {
+      background: #222;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    /* Coding Projects Section */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .project-box {
+      background: #222;
+      padding: 20px;
+      border-radius: 10px;
+      transition: transform 0.3s;
+    }
+
+    .project-box:hover {
+      transform: scale(1.05);
+    }
+
+    /* Interests Section (Dynamic Resume) */
+    #interests {
+      background: #111;
+      color: #fff;
+    }
+
+    .resume-category {
+      padding: 20px;
+      background: #222;
+      margin: 10px 0;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .resume-category:hover {
+      background: #333;
+    }
+
+    .resume-content {
+      display: none;
+      padding: 20px;
+      border-left: 3px solid #00ffdd;
+      margin-top: 10px;
+      background: #222;
+      border-radius: 10px;
+    }
+
+    .resume-content-item {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 10px;
+      cursor: pointer;
+      background: #333;
+      transition: background 0.3s;
+      position: relative;
+    }
+
+    .resume-content-item:hover {
+      background: #444;
+    }
+
+    .logo-container {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    .logo-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .resume-details-container {
+      display: none;
+      padding: 10px;
+      margin-top: 10px;
+      background: #444;
+      border-radius: 5px;
+    }
+
+    .contact-item {
+      background: #222;
+      padding: 20px;
+      border-radius: 10px;
+      transition: transform 0.3s;
+      margin-top: 20px;
+    }
+
+    .contact-item:hover {
+      transform: scale(1.05);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #333;
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">Ty's Portfolio</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#interests">Experiences & Interests</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content Sections -->
+  <main>
+    <!-- Home Section (Keep Existing Interactions) -->
+    <section id="home">
+      <h1>Ty Gelman</h1>
+      <p><i>Welcome</i></p>
+      <div class="typewriter" id="typewriter"></div>
+    </section>
+
+    <!-- About Me & Contact Section -->
+    <section id="about">
+      <img src="unnamed.jpg" alt="Headshot" class="headshot">
+      <div class="about-container">
+        <h2>About Me</h2>
+        <p>I'm currently a sophomore at the University of Pennsylvania majoring in economics, and minoring in statistics
+          & data science.</p>
+        <div class="contact-item">
+          <p><strong>Phone:</strong> (516) 666-3621</p>
+          <p><strong>Email:</strong> tygelman@sas.upenn.edu</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research">
+      <h2>SMA Research</h2>
+      <div class="research-container">
+        <!-- YouTube Video Box -->
+        <div class="research-box">
+          <h3>Research Presentation</h3>
+          <iframe width="100%" height="500" src="https://www.youtube.com/embed/RuCo5LjwNUs?si=yN6eekk8r_I-5U1a"
+            frameborder="0" allowfullscreen>
+          </iframe>
+          <p>Presentation begins @ 24:40 mark</p>
+        </div>
+
+        <!-- PDF Container -->
+        <div class="research-box">
+          <h3>Research Paper</h3>
+          <a href="Ty_Gelman_Research_Paper.pdf" target="_blank" download>Download Research Paper (PDF)</a>
+          <p>My research entailed designing, programming, and building a device to induce exercise in fruit flies with
+            spinal muscular atrophy (SMA). My goal was to test the effects of various intensities of exercise coupled
+            with dietary restriction on the progression of SMA degenerative symptoms. My research found that (1) The
+            Drosophila Rotation Device is a viable device in inducing exercise in fruit flies and (2) The independent
+            benefits of exercise and dietary restriction can be concurrently counterproductive.</p>
+        </div>
+
+        <!-- Images/Videos Container -->
+        <div class="project-box">
+          <h3>Drosophila Rotation Device (DRD)</h3>
+          <p>The DRD was designed with Autodesk Fusion and 3D printed. I used an Arduino Nano, Breadboard, mini DC
+            motor, and C++ to build and program the device. The DRD's clamps holds vials of fruit flies, and while
+            spinning the flies continuously fly up, and fall down, inducing exercise.</p>
+          <img src="drd.png" alt="Research Image 1" style="width: 40%; margin-bottom: 9px;">
+          <video width="700" height="540" controls>
+            <source src="respirometer.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="project-box">
+          <h3>Respirometry</h3>
+          <p>The respirometer functions to indicate relative fly metabolic activity post-exercise and diet. Flies placed
+            in pipettes expell CO2, which reacts with NaOH in pipette creating a vacuum and pulling up water. Greater
+            displacement of water indicates higher fly metabolic rate.</p>
+          <img src="respirometer.png" alt="Research Image 2" style="width: 50%; margin-bottom: 10px;">
+        </div>
+      </div>
+    </section>
+
+    <!-- Coding Projects Section -->
+    <section id="projects">
+      <h2>My Coding Projects</h2>
+      <div class="projects-grid">
+        <!-- Vertical Project Boxes -->
+        <div class="project-box">
+          <h3>Edmund</h3>
+          <p>At HPoint, I entirely developed the back-end and UI/UX of a tool to automate proprietary sourcing. Edmund
+            sources company names, locations, websites, google stars/reviews based on a given industry and geography,
+            and saves data in an .xlsx file. Using the OpenAI API, Edmund can also query GPT-4o mini to enhance data and
+            fill in/verify gaps in data pulled.</p>
+        </div>
+        <div class="project-box">
+          <h3>Open Interest (OI) Anomalies</h3>
+          <p>At GTS, I built a tool to detect anomalies in security OI levels. The tool alerted traders of spikes in OI,
+            allowing them to backtest trading strategies in light of these anomalies.</p>
+        </div>
+        <div class="project-box">
+          <h3>Calendar Tool</h3>
+          <p>Reads through google calendar and generates availability bullet points for seemless meeting planning.
+            Eliminates the need to check your calendar for availability ever again.</p>
+        </div>
+        <div class="project-box">
+          <h3>Soccer Scraper</h3>
+          <p>Used Bayes' Theorem to develop a predictive model on individual university acceptance rates for prospective
+            college soccer players. Given inputs such as club team, location, high school, standardized testing, GPA,
+            etc. the model returns a unique acceptance rate for a given university.</p>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interests Section (Dynamic Resume) -->
+    <section id="interests">
+      <h2>Experiences & Interests</h2>
+      <div class="resume-category" id="experience">
+        <h3>Professional Experience</h3>
+        <div class="resume-content">
+          <div class="resume-content-item">
+            <div class="logo-container">
+              <img src="moso.png" alt="Company Logo 1">
+            </div>
+            Moso Capital - Analyst Team Lead
+            <div class="resume-details-container">Experiential venture capital program. Work with Menlo Ventures &
+              Avalanche VC to help source and conduct diligence for Seed-Series A software and consumer tech startups.
+            </div>
+          </div>
+          <div class="resume-content-item">
+            <div class="logo-container">
+              <img src="hpp.png" alt="Company Logo 2">
+            </div>
+            Heritage Point Partners - Private Equity Analyst
+            <div class="resume-details-container">Nano-cap private equity (<$50m EV)</div>
+            </div>
+            <div class="resume-content-item">
+              <div class="logo-container">
+                <img src="gts.png" alt="Company Logo 3">
+              </div>
+              Global Trading Systems - Software Intern
+              <div class="resume-details-container">Automated Volatility Trading</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="resume-category" id="clubs-leadership">
+          <h3>Clubs & Leadership</h3>
+          <div class="resume-content">
+            <div class="resume-content-item">
+              <div class="logo-container">
+                <img src="wuft.png" alt="Club Logo 1">
+              </div>
+              Wharton Undergraduate Finance & Technology Group - Vice President of Education
+              <div class="resume-details-container">Plan, lead, and coordinate club-wide meetings on topics in all
+                things finance and technology. Last semester, I hosted an event and prepared a case study on VC activity
+                in the FinTech space.</div>
+            </div>
+            <div class="resume-content-item">
+              <div class="logo-container">
+                <img src="perplexity.png" alt="Club Logo 2">
+              </div>
+              Perplexity.ai - Campus Growth Strategist
+              <div class="resume-details-container">Perplexity is an AI search engine that prioritizes data validity
+                through citations. Working with Penn students to show students the power of Perplexity in research.
+              </div>
+            </div>
+            <div class="resume-content-item">
+              <div class="logo-container">
+                <img src="wufc.png" alt="Club Logo 3">
+              </div>
+              Wharton Undergraduate Finance Club - Investment Team Analyst
+              <div class="resume-details-container">harton's largest finance club. Learn the fundamentals of accounting,
+                finance, and current events.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="resume-category" id="skills-interests">
+          <h3>Skills, Interests & Awards</h3>
+          <div class="resume-content">
+            <div class="resume-content-item">
+              Skills: Python (Selenium, Pandas, Streamlit), Bash, Excel, Docker, Tableau
+            </div>
+            <div class="resume-content-item">
+              Interests: I've played competitive soccer since the 5th grade. 4-year varsity high school player, and
+              currently on Penn's Men's Club Soccer Team. Outside of soccer, I enjoy skiing, scuba diving, fishing, and
+              F1.
+            </div>
+            <div class="resume-content-item">
+              Awards: Class Salutatorian (2/283), Child Mind Institute "Rising Scientist" Scholar (1 of 5 Nationally
+              Recognized), Northwell Health Medical Marvels 3rd Place, NYS All-Conference Soccer Athlete
+            </div>
+          </div>
+        </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 Ty Gelman. All rights reserved.</p>
+  </footer>
+
+  <!-- JavaScript for Interactivity -->
+  <script>
+    // Smooth Scroll for Navigation Links
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        const targetId = link.getAttribute('href').slice(1);
+        document.getElementById(targetId).scrollIntoView({behavior: 'smooth'});
+      });
+    });
+
+    // Fade-In Effect for Sections on Scroll
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('section');
+
+      const revealSection = () => {
+        sections.forEach(section => {
+          const sectionTop = section.getBoundingClientRect().top;
+          if (sectionTop < window.innerHeight) {
+            section.classList.add('fade-in');
+          }
+        });
+      };
+
+      // Initial call to reveal sections already in view
+      revealSection();
+
+      // Event listener for scrolling
+      window.addEventListener('scroll', revealSection);
+    });
+
+    // Typewriter Effect
+    const typewriter = document.getElementById('typewriter');
+    const words = ['Research', 'Coding Projects', 'Interests . . . '];
+    let wordIndex = 0;
+    let letterIndex = 0;
+    let currentWord = '';
+    let isDeleting = false;
+
+    function type() {
+      currentWord = words[wordIndex];
+
+      if (isDeleting) {
+        typewriter.textContent = currentWord.slice(0, letterIndex--);
+        if (letterIndex < 0) {
+          isDeleting = false;
+          wordIndex = (wordIndex + 1) % words.length;
+        }
+      } else {
+        typewriter.textContent = currentWord.slice(0, ++letterIndex);
+        if (letterIndex === currentWord.length) {
+          isDeleting = true;
+          setTimeout(type, 1000);
+          return;
+        }
+      }
+
+      setTimeout(type, isDeleting ? 50 : 100);
+    }
+    type();
+
+    // Mouse Interaction - Particle Effect (Existing)
+    document.getElementById('home').addEventListener('mousemove', (e) => {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      particle.style.left = `${e.clientX}px`;
+      particle.style.top = `${e.clientY}px`;
+      document.body.appendChild(particle);
+
+      setTimeout(() => {
+        particle.remove();
+      }, 1000);
+    });
+
+    // Dynamic Resume Toggle Effects
+    document.querySelectorAll('.resume-category').forEach(category => {
+      category.addEventListener('click', () => {
+        const content = category.querySelector('.resume-content');
+        content.style.display = content.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+
+    // Toggle Detailed Descriptions for Each Resume Item
+    document.querySelectorAll('.resume-content-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const detailsContainer = item.querySelector('.resume-details-container');
+        detailsContainer.style.display = detailsContainer.style.display === 'block' ? 'none' : 'block';
+      });
+    });
+  </script>
+</body>
+
+</html>
