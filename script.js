@@ -59,34 +59,3 @@ function closeModal() {
     videoElement.pause();
     videoElement.currentTime = 0;
 }
-
-// JavaScript for mobile menu toggle
-const navbar = document.querySelector('.navbar');
-const navLinks = document.querySelector('.nav-links');
-const toggleMenu = document.createElement('div');
-toggleMenu.innerText = '☰';
-toggleMenu.style.cursor = 'pointer';
-toggleMenu.style.fontSize = '1.5rem';
-toggleMenu.style.display = 'none';
-navbar.insertBefore(toggleMenu, navLinks);
-
-toggleMenu.addEventListener('click', () => {
-  navLinks.classList.toggle('active');
-});
-
-// CSS to handle active class for mobile menu
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-    flex-direction: column;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .navbar div[style*="cursor: pointer"] {
-    display: block; /* Show the toggle menu icon */
-  }
-}
-
