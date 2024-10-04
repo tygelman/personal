@@ -59,3 +59,21 @@ function closeModal() {
     videoElement.pause();
     videoElement.currentTime = 0;
 }
+
+// JavaScript to handle password protection
+function checkPassword() {
+    const passwordInput = document.getElementById('password-input').value;
+    const correctPassword = 'vertiv2024'; // Set your password here
+    const errorMessage = document.getElementById('error-message');
+    const protectedContent = document.getElementById('protected-content');
+    const passwordForm = document.getElementById('password-form');
+  
+    if (passwordInput === correctPassword) {
+      // Hide the password form and show the protected content in the same box
+      passwordForm.style.display = 'none';
+      protectedContent.style.display = 'block';
+    } else {
+      // Show an error message
+      errorMessage.style.display = 'block';
+    }
+  }
