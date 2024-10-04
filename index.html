@@ -19,7 +19,21 @@
   <style>
     /* Importing a coder-friendly font */
     @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&display=swap');
+/* Adjust iframe to be responsive */
+#powerpoint-container {
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  position: relative;
+}
 
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
     /* General Reset */
     * {
       margin: 0;
@@ -595,7 +609,6 @@ video.media-frame {
           </p>
         </div>
 <!-- Protected Write-Up Section -->
-<!-- Protected Write-Up Section -->
 <section id="write-up" class="protected-content">
   <div id="content-box" class="rounded-box">
     <!-- This is where the password form will initially be shown -->
@@ -614,12 +627,12 @@ video.media-frame {
 
       <!-- Embedded PowerPoint -->
       <div id="powerpoint-container">
-        <!-- Replace the iframe src with your OneDrive or Google Slides embed URL -->
-        <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRpweniIapYYn2VWLabqz0PL4WRSIaIM0rEIJsUEjJWgMlEtDLk-atvn5nhuGDkR1EalS2vYIqoYHvW/embed?start=false&loop=false&delayms=3000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
+        <iframe src="https://docs.google.com/presentation/d/e/2PACX-1vRpweniIapYYn2VWLabqz0PL4WRSIaIM0rEIJsUEjJWgMlEtDLk-atvn5nhuGDkR1EalS2vYIqoYHvW/embed?start=false&loop=false&delayms=3000" frameborder="0" class="responsive-iframe" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
       </div>
     </div>
   </div>
 </section>
+
 
         
         <!-- Additional Blog Posts -->
