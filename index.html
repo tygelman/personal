@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  <script type="text/javascript" data-cmp-ab="1" src="https://cdn.consentmanager.net/delivery/autoblocking/aec56d0c219e4.js" data-cmp-host="b.delivery.consentmanager.net" data-cmp-cdn="cdn.consentmanager.net" data-cmp-codesrc="16"></script>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC7HD81S4D"></script>
 <script>
@@ -13,7 +14,7 @@
 </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ty Gelman</title>
+  <title>Ty's Portfolio</title>
   <link rel="icon" type="image/x-icon" href="favicon.png">
   <style>
     /* Importing a coder-friendly font */
@@ -31,6 +32,40 @@
   color: #fff;
   padding: 4rem 2rem;
 }
+/* Styling for the protected content box */
+.rounded-box {
+  padding: 20px;
+  border: 2px solid teal; /* Teal border */
+  border-radius: 10px; /* Rounded corners */
+  background-color: #111; /* Background color for the box */
+  color: #fff; /* Text color */
+  max-width: 800px;
+  margin: 20px auto; /* Center the box */
+}
+
+/* Style for the password input and button */
+#password-input {
+  padding: 10px;
+  width: 100%;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: teal;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #00ffdd; /* Change color on hover */
+}
+
 
 /* Center the projects section */
 #projects {
@@ -440,7 +475,7 @@ video.media-frame {
   <!-- Navigation Bar -->
   <header>
     <nav class="navbar">
-      <div class="logo">Ty Gelman</div>
+      <div class="logo">Ty's Portfolio</div>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
@@ -536,6 +571,7 @@ video.media-frame {
             <p>When looking at the future of VC in fintech, there is an anticipated rebound in 2024. VC firms such as Anthemis ($1.1B AUM) are becoming more active again–signaling an optimistic outlook for the last quarters of 2024. Despite a massive increase in AI-driven fintech products, Web3/DeFi technologies are considered promising for their potential to innovate and attract investments. Personally, I think it'll take quite a while before crypto, blockchain, and Web3 really begin to play a crucial role in the economy, but these technologies are slowly gaining traction. </p>
           </p>
         </div>
+        
     
         <!-- Example Blog Post 2 -->
         <div class="blog-post">
@@ -560,6 +596,25 @@ video.media-frame {
             <p> </p>
           </p>
         </div>
+<!-- Protected Write-Up Section -->
+<section id="write-up" class="protected-content">
+  <div id="content-box" class="rounded-box">
+    <!-- This is where the password form will initially be shown -->
+    <div id="password-form">
+      <h3>Protected Write-Up</h3>
+      <p>Please enter the password to view this content:</p>
+      <input type="password" id="password-input" placeholder="Enter password">
+      <button onclick="checkPassword()">Submit</button>
+      <p id="error-message" style="color: red; display: none;">Incorrect password. Please try again.</p>
+    </div>
+
+    <!-- The protected content, initially hidden -->
+    <div id="protected-content" style="display: none;">
+      <h3>Write-Up Title</h3>
+      <p>This is the protected content of the write-up...</p>
+    </div>
+  </div>
+</section>
         
         <!-- Additional Blog Posts -->
         <!-- You can add more blog posts here in the same format -->
